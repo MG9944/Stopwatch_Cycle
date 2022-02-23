@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StopwatchActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/buttonStart"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/buttonStop"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickStart"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/buttonStop"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/buttonStart"
+        android:onClick="onClickStop"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/buttonReset"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/buttonStop"
+        android:layout_alignStart="@+id/buttonStop"
+        android:onClick="onClickReset"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_View"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textSize="56dp"/>
+
+</RelativeLayout>
