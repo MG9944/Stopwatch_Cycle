@@ -4,48 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".StopwatchActivity">
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/button_style"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:text="Start"
         android:id="@+id/buttonStart"
         android:layout_marginBottom="30dp"
+        android:textSize="20dp"
         android:layout_above="@+id/buttonStop"
+        android:textColor="@drawable/mybutton_clicked"
         android:layout_centerHorizontal="true"
         android:onClick="onClickStart"/>
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop"
         android:id="@+id/buttonStop"
-        android:layout_centerVertical="true"
+        style="@style/button_style"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_alignStart="@+id/buttonStart"
-        android:onClick="onClickStop"/>
+        android:layout_centerVertical="true"
+        android:textColor="@drawable/mybutton_clicked"
+        android:onClick="onClickStop"
+        android:text="Stop"
+        android:textSize="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/button_style"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:text="Reset"
         android:id="@+id/buttonReset"
         android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textColor="@drawable/mybutton_clicked"
         android:layout_below="@+id/buttonStop"
         android:layout_alignStart="@+id/buttonStop"
         android:onClick="onClickReset"/>
 
 
-
     <TextView
+        android:id="@+id/time_View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/time_View"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="00:00:00"
         android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="56dp"/>
+        android:textColor="@color/white"
+        android:textSize="60dp" />
 
 </RelativeLayout>

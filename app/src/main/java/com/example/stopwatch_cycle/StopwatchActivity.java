@@ -11,6 +11,7 @@ import java.util.Locale;
 public class StopwatchActivity extends AppCompatActivity {
     private int seconds = 0;
     private boolean running;
+    private boolean realisation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,7 @@ public class StopwatchActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             seconds = savedInstanceState.getInt("seconds");
             running = savedInstanceState.getBoolean("running");
+            realisation = savedInstanceState.getBoolean("realisation");
         }
         runTimer();
     }
@@ -42,6 +44,19 @@ public class StopwatchActivity extends AppCompatActivity {
         seconds = 0;
     }
 
+    protected void onPause(){
+        super.onPause();
+        realisation = running;
+        running = false;
+    }
+
+    protected  void onResume(){
+        super.onResume();
+        if(realisation){
+            running = true;
+        }
+    }
+
     private void runTimer(){
         final TextView timeView = (TextView) findViewById(R.id.time_View);
         final android.os.Handler handler = new android.os.Handler();
@@ -51,7 +66,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 int hours = (seconds/3600);
                 int minutes = (seconds/3600)/60;
                 int sec = seconds%60;
-                String time = String.format(Locale.getDefault(), "%d:%02d:%02d", hours, minutes,sec);
+                String time = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes,sec);
                 timeView.setText(time);
                 if(running){
                     seconds++;
